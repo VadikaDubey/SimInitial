@@ -1,0 +1,50 @@
+README
+
+simulation/
+│
+├── magnets.py
+├── field_model.py
+├── material_model.py
+├── blob_model.py
+├── environment.py
+└── visualization.py
+
+apparently right now is:
+Magnets
+    ↓
+Magnetic Field
+    ↓
+MR Constitutive Law
+    ↓
+Blob Dynamics
+    ↓
+Environment API
+
+and later we'll evolve to:
+Analytical Field
+      ↓
+FEM Maxwell Solver
+
+Bingham Plastic
+      ↓
+Full MR Rheology
+
+Particle Cloud
+      ↓
+SPH
+
+NumPy
+      ↓
+Taichi/CUDA
+
+------------------------------------------------------------
+
+Now, about arrangement of electromagnets.
+Sphere for easier calculation and symmetry. Apparently 
+not latitude and longitude because magnets cluster near
+the pole. 
+Recommended:
+Fibonnacci sphere -> geodesic sphere
+and N=32 electromagnets, not too small (N<12 control authority
+becomes poor) but not too large (N>64 not yet, not until
+model is stable).
