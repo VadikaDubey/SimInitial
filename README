@@ -1,11 +1,24 @@
 README
 
-This is a simulation consisting of a single bar magnet and a particle. 
+This is a simulation consisting of a single bar magnet and a charged particle. 
+
+Current Trajectory: 
+Use Panda3D -> add in another particle -> make dipoles induced and interacting -> more particles -> add in particle collision
 
 
 Next Steps:
-- Make particle charged and moving!
+- Add in Panda3D along with Matplotlib and Numpy (Matplotlib is incredibly slow in rendering) and prove Forward Euler
+- Semi-Implicit Euler comparison: theory (article) and implementation (prove the differences by rendering in Panda3D and using Matplotlib plots to compare numerically)
+- Learn about errors, ig?
 
 Stuff to go over:
 - derivation of vector dipole formula
 - net field direction inconsistency
+- why does B become None when you add in the singularity?
+
+two month goal:
+make a decent physically true MR fluid being influenced by a magnet via particles
+and perhaps then get an AI to run over it and figure out what the relation is between magnetic field and viscosity of fluid flow
+so that then we can stop making particles and use fully normal fluid sims that other people have already made, just with that correlation, hopefully easier?
+
+
