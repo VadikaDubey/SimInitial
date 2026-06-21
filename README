@@ -1,12 +1,12 @@
 README
 
-This is a simulation consisting of a single bar magnet and charged particles. 
+This is a simulation demonstrating the lorentz force. 
 
 Future Work:
-- fix and improve graphing analysis bug for when there's multiple particles
-- add more integrators and compare, theoretically and experimentally
+- fix and improve energy graphing analysis bug for when there's multiple particles
+- add more integrators and improve analysis by comparing, theoretically and experimentally
 - add a three.js renderer
-
+- be able to save and delete specific simulation's data, or run sim temporarily
 
 
 
