@@ -2,11 +2,17 @@ README
 
 This is a simulation demonstrating the lorentz force. 
 
+New things I've learned:
+- the differences between Forward Euler and Semi-Implicit Euler, and how the latter is sympletic, meaning preserves phase space and thus the total energy may oscillate between slightly too much or too less but won't inflate to infinity like FE (how exactly does phase space and energy correlate though?)
+- verlet integration (velocity verlet) is also sympletic but lets more terms of taylor series stay and works in half step average approximations (not completely sure how this works), so it's more accurate and error scales with delta T squared unlike the linear scaling of FE and SE
+- RK4 is even more accurate, error scales with delta t power 4, but that makes it much more computationally expensive because it averages 4 steps. also it's not sympletic, so leave it on long enough and total energy will drift over time
+- what's Bohris Pusher?
+
 Future Work:
 - fix and improve energy graphing analysis bug for when there's multiple particles
 - add more integrators and improve analysis by comparing, theoretically and experimentally
 - add a three.js renderer
-- be able to save and delete specific simulation's data, or run sim temporarily
-
-
+- be able to save and delete specific simulation's data/analysis results, or run sim temporarily
+- make magnet movable, and make default values
+- perhaps even improve efficiency
 

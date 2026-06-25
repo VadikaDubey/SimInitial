@@ -10,7 +10,7 @@ Written by Vadika Dubey
 
 ## Numerical Integration: Euler's Family of Methods:
 
-Numerical Integration refers to computational physics methods used to model any motions involving acceleration, i.e. to calculate what happens in the next \( dt \) time while controlling numerical errors. In this post, we're going to cover how Forward Euler and why we're rejecting it for this specific project.
+Numerical Integration refers to computational physics methods used to model any motions involving acceleration, i.e. to calculate what happens in the next \( dt \) time while controlling numerical errors. In this post, we're going to cover how Forward Euler works.
 
 
 
@@ -78,8 +78,8 @@ However, we have a physical limit to how small we can make unit time changes on 
 
 Take a look at the above, slightly exaggerated diagram. We have a smaller particle with position \( x_{0} \), velocity \( v_{0} \), and acceleration \( a_{0} \) in orbit around a larger particle. Normally the particle would take the green path on its orbit, if we were to continuously change the directions of acceleration and velocity perfectly. However, in the Forward Euler method, the computer assumes \(v_{0} \) and \( a_{0} \) to be constant over the next finite \( \Delta t \) time (this \( \Delta t \) time presumably being the smallest time-step we can practically simulate before computation becomes too expensive). In the first iteration, the computer calculates \( x_{1} = x_{0} + v_{0} \cdot \Delta t \) and moves the smaller ball along a straight line to \( x_{1} \) from \( x_{0} \). It then calculates \( v_{1} = v_{0} + a_{0} \cdot \Delta t \) (since these are vectors, you'd actually have to run this method independently for each of the three dimensions) to update it to \( v_{1} \). See how the blue path of Forward Euler very slightly deviates from the green path it was to originally take? In reality, it would be even smaller. And a great number of small lines connected together successively creates a near-curve, so it's a somewhat valid (although basic) way of simulating continuously changing acceleration. It usually works for models that don't require a lot of precision.
 
-**Tiny Note:** you could actually reverse it and calculate \( v_{1} \) first and then use that for calculating \( x_{1} \), this method is actually called Semi-Implicit Euler and apparently makes the simulation much more stable. But we won't be diving into that, since numerical integration has many methods and looking at all of them would take forever, and we've got a project to make.
+**Tiny Note:** you could actually reverse it and calculate \( v_{1} \) first and then use that for calculating \( x_{1} \), this method is actually called Semi-Implicit Euler and apparently makes the simulation much more stable. But we'll be diving into that in another article.
 
-However, clearly, for long term gravitational physics models, we cannot use Forward Euler. In this diagram, we can see how the actual trajectory of the smaller ball is overshooting the original orbit, therefore giving the wrong trajectory and systematically making our simulation gain energy (as a bounded orbiting object moves away from the object at centre of orbit, it gains energy). That's the main disadvantage Forward Euler is known for having: not being able to conserve energy. For our star model, this is detrimental. 
+However, clearly, for long term gravitational physics models, we cannot use Forward Euler. In this diagram, we can see how the actual trajectory of the smaller ball is overshooting the original orbit, therefore giving the wrong trajectory and systematically making our simulation gain energy (as a bounded orbiting object moves away from the object at centre of orbit, it gains energy). That's the main disadvantage Forward Euler is known for having: not being able to conserve energy. For our physics model, this is detrimental. 
 
 And so we'll move on, to learn about more numerical integration methods!
